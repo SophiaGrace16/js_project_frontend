@@ -509,6 +509,11 @@ mark,
   color: #888;
 }
 
+.gallery {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+}
+
 code {
   font-size: 87.5%;
   color: #e83e8c;

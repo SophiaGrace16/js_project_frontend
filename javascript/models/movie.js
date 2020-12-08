@@ -18,12 +18,21 @@ class Movie {
         movieCard.innerHTML += this.movieHTML()
         movieContainer.appendChild(movieCard)
         movieCard.addEventListener('click', e => {
-          if (e.target.className.includes('header')) this.showMovie(e)
+            e.preventDefault()
+            if (e.target.className.includes('header')) this.showMovie(e)
         })
       }
 
     movieHTML(){
+        return `
+        <a href="/movies/${this.id}">
         <img src="${this.image}" width="100" />
+        </a>
+        `
+    }
+
+    showMovie(e){
+
     }
 
     showHog(e){
