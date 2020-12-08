@@ -9,4 +9,14 @@ class API {
             })
         })
     }
+    static addEggs(){
+        fetch("http://localhost:3000/eggs")
+            .then(resp => resp.json())
+            .then(eggs => {
+                eggs.forEach(movie => {
+                    const {id, egg_name, egg, image, movie_id} = egg
+                    new Egg(id, egg_name, egg, image, movie_id)
+            })
+        })
+    }
 }
