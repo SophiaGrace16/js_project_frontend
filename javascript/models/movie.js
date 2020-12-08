@@ -1,7 +1,7 @@
 class Movie {
     constructor(id, movie_name, date_released, studio_name, image, imdb, movie_link){
       this.id = id
-      this.name = movie_name
+      this.movie_name = movie_name
       this.date_released = date_released
       this.studio_name = studio_name
       this.image = image
@@ -19,7 +19,8 @@ class Movie {
         movieContainer.appendChild(movieCard)
         movieCard.addEventListener('click', e => {
             e.preventDefault()
-            if (e.target.className.includes('header')) this.showMovie(e)
+            this.showMovie(e)  
+
         })
       }
 
@@ -31,13 +32,32 @@ class Movie {
         `
     }
 
-    showMovie(e){
-
+    eggHTML(){
+        return `
+        <img src="${this.image}" width="100" />
+        <p>
+        ${this.movie_name} <br>
+        ${this.date_released} <br>
+        ${this.studio_name} <br>
+        ${this.imdb} <br>
+        ${this.movie_link} <br>
+        Or watch on Disney+!
+        </p>` 
     }
 
-    showHog(e){
+    showMovie(e){
         debugger
-      }
+        const cardContainer = document.getElementById('card-container') 
+        const card = document.createElement("div")
+        card.id = this.id
+        card.innerHTML += this.eggHTML()
+        cardContainer.appendChild(card)
+        const el = document.getElementById('movie-container');
+        el.remove();
+        // return `
+        // <img src="${this.image}" width="100" />`
+    }
+       
   
 }
 
