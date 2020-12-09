@@ -21,15 +21,16 @@ class Movie {
         listCard.addEventListener('click', e => {
             e.preventDefault() 
             this.showMovie(e)
+            this.createEggs(e)
         })
       }
 
     listHTML(){
         return `
-        <div class = "row">
+        <div class = "image-list">
             <div class = "col-lg-12">
-                <a class = "movie-link" href="/movies/${this.id}">
-                <img src="${this.image}" width="30%" />
+                <a href="/movies/${this.id}">
+                    <img src="${this.image}" class="movie-image" width="25%" />
                 </a>
             </div>
         </div>
@@ -37,34 +38,53 @@ class Movie {
     }
 
     showMovie(e){
-        debugger
         const movieContainer = document.getElementById('movie-container') 
         const movieCard = document.createElement("div")
+        movieCard.dataset.id = this.id
         movieCard.id = this.id
-        movieCard.innerHTML += this.eggHTML()
+        movieCard.innerHTML += this.movieHTML()
         movieContainer.appendChild(movieCard)
         const el = document.getElementById('list-container');
         el.remove();
-        // return `
-        // <img src="${this.image}" width="100" />`
     }
 
-    eggHTML(){
+    movieHTML(){
         return `
-        <img src="${this.image}" width="100" />
-        <p>
-        ${this.movie_name} <br>
-        ${this.date_released} <br>
-        ${this.studio_name} <br>
-        ${this.imdb} <br>
-        ${this.movie_link} <br>
-        Or watch on Disney+!
-        </p>
+        <div class="card border-primary mb-3">
+
+            <div class="image-container">
+                <img src="${this.image}" class = "movie-card"/>
+            </div>
+            <div class="movie-lead">
+                <h3> ${this.movie_name} </h3>
+                    <div class = "small">
+                    ${this.date_released} <br>
+                    ${this.studio_name} <br>
+                    <a href=${this.imdb} target="_blank">${this.movie_name} IMDB</a>
+                    <br>
+                    <a href=${this.movie_link} target="_blank">Click here to rent the movie on Amazon!</a>
+                    <br>
+                    Or watch on <a href="https://www.disneyplus.com/home" target="_blank">Disney+</a>!
+                    </div>
+            </div>
+        </div>
+
+        <div id="egg-container">
+        </div>
         `
     }
 
-    
-       
-  
+    createEggs(e) {
+        //fetch
+        //create our associated eggs
+        debugger
+        fetch("http://localhost:3000/movies/${this.id}/eggs")
+        .then(resp => resp.json())
+        .then(eggs => {
+            eggs.forEach(newEgg => {
+                const {id, egg_movie, egg, image, movie_id} = newEgg
+                new Egg(id, egg_movie, egg, image, movie_id)
+            })
+        })
+    }
 }
-

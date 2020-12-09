@@ -9,17 +9,6 @@ class API {
             })
         })
     }
-
-    // static addEggs(){
-    //     fetch("http://localhost:3000/eggs")
-    //         .then(resp => resp.json())
-    //         .then(eggs => {
-    //             eggs.forEach(egg => {
-    //                 const {id, egg_name, egg, image, movie_id} = egg
-    //                 new Egg(id, egg_name, egg, image, movie_id)
-    //         })
-    //     })
-    // }
 }
 
 // this is a static fetch (class level) request that allows us to call things from our backend. 

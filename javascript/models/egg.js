@@ -1,9 +1,10 @@
 class Egg {
 
-    constructor(id, egg_movie, egg, movie_id ){
+    constructor(id, egg_movie, egg, image, movie_id ){
         this.id = id
         this.egg_movie = egg_movie
         this.egg = egg
+        this.image = image
         this.movie_id = movie_id
         this.renderEgg()
     }
@@ -13,12 +14,25 @@ class Egg {
         const eggCard = document.createElement('div')
         eggCard.classList.add('egg-card')
         eggCard.id = this.id
-        eggCard.innerHTML += this.movieHTML()
-        eggContainer.appendChild(movieCard)
-        eggCard.addEventListener('click', e => {
-            e.preventDefault()
-            this.showMovie(e)  
-        })
+        eggCard.innerHTML += this.eggHTML()
+        eggContainer.appendChild(eggCard) 
+    }
+
+    eggHTML(){
+        return `
+        <div class="card border-primary mb-3">
+
+            <div class="image-container">
+                <img src="${this.image}" class = "movie-card"/>
+            </div>
+                <div class="movie-lead">
+                    <h3> ${this.egg_movie} </h3>
+                        <div class = "small">
+                        ${this.egg} <br>
+                        </div>
+                </div>
+        </div>
+        `
     }
 
 }
