@@ -417,13 +417,20 @@ a:hover {
 .image-list {
   grid-auto-columns: max-content;
 }
+
 .movie-card {
-  padding: 10%;
+  padding: 5%;
   width: auto;
   height: auto;
   resize: both;
 }
 
+.egg-card {
+  padding: 5%;
+  width: 100%;
+  height: 100%;
+  resize: both;
+}
 .image-container {
   float: left;
 }
