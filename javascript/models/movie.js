@@ -7,29 +7,45 @@ class Movie {
       this.image = image
       this.imdb = imdb
       this.movie_link = movie_link
-      this.renderMovie()
+      this.renderList()
     }
 
-    renderMovie(){
-        const movieContainer = document.getElementById('movie-container')
-        const movieCard = document.createElement('div')
-        movieCard.classList.add('movie-card')
-        movieCard.id = this.id
-        movieCard.innerHTML += this.movieHTML()
-        movieContainer.appendChild(movieCard)
-        movieCard.addEventListener('click', e => {
-            e.preventDefault()
-            this.showMovie(e)  
-
+    renderList(){
+        const listContainer = document.getElementById('list-container')
+        const listCard = document.createElement('div')
+        listCard.classList.add('list-card')
+        listCard.id = this.id
+        listCard.dataset.id = this.id
+        listCard.innerHTML += this.listHTML()
+        listContainer.appendChild(listCard)
+        listCard.addEventListener('click', e => {
+            e.preventDefault() 
+            this.showMovie(e)
         })
       }
 
-    movieHTML(){
+      listHTML(){
         return `
-        <a href="/movies/${this.id}">
-        <img src="${this.image}" width="100" />
-        </a>
+            <div class = "col-auto">
+                <a class = "movie-link" href="/movies/${this.id}">
+                <img src="${this.image}" width="100" />
+                </a>
+            </div>
+        
         `
+    }
+
+    showMovie(e){
+        debugger
+        const movieContainer = document.getElementById('movie-container') 
+        const movieCard = document.createElement("div")
+        movieCard.id = this.id
+        movieCard.innerHTML += this.eggHTML()
+        movieContainer.appendChild(movieCard)
+        const el = document.getElementById('list-container');
+        el.remove();
+        // return `
+        // <img src="${this.image}" width="100" />`
     }
 
     eggHTML(){
@@ -42,21 +58,11 @@ class Movie {
         ${this.imdb} <br>
         ${this.movie_link} <br>
         Or watch on Disney+!
-        </p>` 
+        </p>
+        `
     }
 
-    showMovie(e){
-        debugger
-        const cardContainer = document.getElementById('card-container') 
-        const card = document.createElement("div")
-        card.id = this.id
-        card.innerHTML += this.eggHTML()
-        cardContainer.appendChild(card)
-        const el = document.getElementById('movie-container');
-        el.remove();
-        // return `
-        // <img src="${this.image}" width="100" />`
-    }
+    
        
   
 }
