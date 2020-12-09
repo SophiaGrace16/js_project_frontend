@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 abbr[title],
@@ -401,9 +401,65 @@ h6, .h6 {
   font-size: 1rem;
 }
 
+a:hover {
+  color: rgba(0, 0, 0, 0.292);
+}
+
+.movie-image {
+  opacity: 1;
+  border-radius: 25px;
+}
+
+.movie-image:hover {
+  opacity: 0.3;
+}
+
+.image-list {
+  grid-auto-columns: max-content;
+}
+.movie-card {
+  padding: 10%;
+  width: auto;
+  height: auto;
+  resize: both;
+}
+
+.image-container {
+  float: left;
+}
+
+.text-container {
+  float: right;
+
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 0;
+  max-height: 500px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 3px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.4rem;
+}
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+}
+
+.movie-lead {
+  color: #888 !important;
+  font-size: 1.25rem;
+  font-weight: 300;
+  padding: 5%;
+}
+
+.movie-lead p {
+  font-size: 100%;
+
 }
 
 .display-1 {
@@ -4736,19 +4792,7 @@ input[type="button"].btn-block {
   color: #fff;
 }
 
-.card {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.4rem;
-}
+
 
 .card > hr {
   margin-right: 0;
