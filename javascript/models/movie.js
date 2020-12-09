@@ -24,14 +24,15 @@ class Movie {
         })
       }
 
-      listHTML(){
+    listHTML(){
         return `
-            <div class = "col-auto">
+        <div class = "row">
+            <div class = "col-lg-12">
                 <a class = "movie-link" href="/movies/${this.id}">
-                <img src="${this.image}" width="100" />
+                <img src="${this.image}" width="30%" />
                 </a>
             </div>
-        
+        </div>
         `
     }
 
