@@ -23,7 +23,7 @@ class Egg {
         <div class="card border-primary mb-3">
 
             <div class="image-container">
-                <img src="${this.image}" class = "movie-card"/>
+                <img src="${this.image}" class = "egg-card"/>
             </div>
                 <div class="movie-lead">
                     <h3> ${this.egg_movie} </h3>

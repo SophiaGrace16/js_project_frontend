@@ -68,9 +68,6 @@ class Movie {
                     </div>
             </div>
         </div>
-
-        <div id="egg-container">
-        </div>
         `
     }
 
@@ -78,7 +75,7 @@ class Movie {
         //fetch
         //create our associated eggs
         debugger
-        fetch("http://localhost:3000/movies/${this.id}/eggs")
+        fetch(`http://localhost:3000/movies/${this.id}/eggs`)
         .then(resp => resp.json())
         .then(eggs => {
             eggs.forEach(newEgg => {
