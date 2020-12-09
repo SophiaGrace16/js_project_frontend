@@ -5272,7 +5272,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  margin: 2rem;
   background-color: #f7f7f9;
   border-radius: 0.6rem;
 }
@@ -5284,8 +5284,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron-fluid {
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 30px;
+  padding-left: 30px;
   border-radius: 0;
 }
 

@@ -4,18 +4,22 @@
     <title>Easter Egg Hunt</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<h1>Easter Egg Hunt</h1> 
-<h3>Select a Movie to see  the Easter Eggs hidden within!</h3>
-<body>
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+<blockquote class="blockquote text-center">
+    <h1 class="display-3">Easter Egg Hunt</h1> 
+    <p class="lead">Select a Movie to see  the Easter Eggs hidden within!</p>
+    <hr class="my-4">
+</blockquote>
+
+    <div class="jumbotron">
+        <body>
+            <div id="list-container">
+            </div>
+
             <div id="movie-container">
             </div>
-        </div>
-    </div>  
-    <div id="card-container">
+        </body>
     </div>
-</body>
+
 
 <script type="text/javascript" src="javascript/models/movie.js"></script>
 <script type="text/javascript" src="javascript/services/api.js"></script>
