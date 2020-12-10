@@ -13,19 +13,21 @@ class Egg {
     renderEgg() {
         const eggContainer = document.getElementById('egg-container')
         const eggCard = document.createElement('div')
-        let counterButton = document.getElementById('counter-button')
+        let counterButton = document.getElementById('btn')
         eggCard.classList.add('egg-card')
+        eggCard.dataset.id = this.id
         eggCard.id = this.id
         eggCard.innerHTML += this.eggHTML()
         eggContainer.appendChild(eggCard) 
         eggCard.addEventListener('click', e => {
-            if (e.target.className.includes('counter-button')) this.clickCounter(e)
-            debugger
+            if (e.target.className.includes("btn")) this.clickCounter(e)
         })
     }
     
     clickCounter(e) {
-        e.target.found_count ++;
+        let counter = this
+        let count = document.getElementById(`count-${this.id}`)
+        this.found_count ++;
         fetch(`http://localhost:3000/movies/${this.movie_id}/eggs/${this.id}`, {
             method: 'PATCH',
             headers: {
@@ -33,15 +35,14 @@ class Egg {
             },
             body: JSON.stringify(
                 {
-                "found_count": counterButton.found_count
+                found_count: counter.found_count
                 }
             )
         })
         .then(response => response.json())
         .then(json => {
-            counterButton.innerText = `${json.found_count}`;
+            count.innerText = `${json.found_count}`;
         })
-        debugger
     }
 
     eggHTML(){
@@ -59,10 +60,11 @@ class Egg {
                 </div>
 
                 <button id="counter-button" class="btn btn-primary btn-md btn-block">
-                <b>Have you found this Easter Egg yet?</b> <br>
-                So far it has been found...<br>
-                ${this.found_count}
+                    Have you found this Easter Egg yet?<br>
+                    So far it has been found...<br>
+                    <div id="count-${this.id}">${this.found_count}</div>
                 </button>
+               
         </div>
         `
     }
