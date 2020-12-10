@@ -1,12 +1,12 @@
 class Egg {
 
-    constructor(id, egg_movie, egg, image, movie_id ){
+    constructor(id, egg_movie, egg, image, movie_id, found_count){
         this.id = id
         this.egg_movie = egg_movie
         this.egg = egg
         this.image = image
         this.movie_id = movie_id
-        this.found_count = this.found_count
+        this.found_count = found_count
         this.renderEgg()
     }
 
@@ -17,18 +17,22 @@ class Egg {
         eggCard.id = this.id
         eggCard.innerHTML += this.eggHTML()
         eggContainer.appendChild(eggCard) 
+        eggCard.addEventListener('click', e => {
+            if (e.target.className.includes("counter-button")) this.clickCounter(e)
+        })
     }
     
     clickCounter() {
-        var button = document.getElementById("clickme"),
-        count = 0;
+        var button = document.getElementById("counter-button"),
+        count = this.found_count;
         button.onclick = function() {
         count += 1;
-        button.innerHTML = "Click me: " + count;
+        button.innerHTML = count;
         };
     }
     
     eggHTML(){
+        debugger
         return `
         <div class="card border-primary mb-3">
 
