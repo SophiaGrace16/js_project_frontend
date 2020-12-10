@@ -74,7 +74,6 @@ class Movie {
     createEggs(e) {
         //fetch
         //create our associated eggs
-        debugger
         fetch(`http://localhost:3000/movies/${this.id}/eggs`)
         .then(resp => resp.json())
         .then(eggs => {
