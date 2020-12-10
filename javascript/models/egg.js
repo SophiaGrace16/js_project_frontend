@@ -17,7 +17,16 @@ class Egg {
         eggCard.innerHTML += this.eggHTML()
         eggContainer.appendChild(eggCard) 
     }
-
+    
+    clickCounter() {
+        var button = document.getElementById("clickme"),
+        count = 0;
+        button.onclick = function() {
+        count += 1;
+        button.innerHTML = "Click me: " + count;
+        };
+    }
+    
     eggHTML(){
         return `
         <div class="card border-primary mb-3">
@@ -31,6 +40,12 @@ class Egg {
                         ${this.egg} <br>
                         </div>
                 </div>
+
+                <button id="counter-button" class="btn btn-primary btn-md btn-block">
+                <b>Have you found this Easter Egg yet?</b> <br>
+                So far it has been found...<br>
+                0 times!
+                 </button>
         </div>
         `
     }
