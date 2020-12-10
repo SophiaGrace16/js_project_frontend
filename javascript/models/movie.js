@@ -28,7 +28,7 @@ class Movie {
     listHTML(){
         return `
         <div class = "image-list">
-            <div class = "col-lg-12">
+            <div class = "col-md-12">
                 <a href="/movies/${this.id}">
                     <img src="${this.image}" class="movie-image" width="25%" />
                 </a>
