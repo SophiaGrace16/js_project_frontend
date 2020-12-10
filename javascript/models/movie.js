@@ -79,8 +79,8 @@ class Movie {
         .then(resp => resp.json())
         .then(eggs => {
             eggs.forEach(newEgg => {
-                const {id, egg_movie, egg, image, movie_id} = newEgg
-                new Egg(id, egg_movie, egg, image, movie_id)
+                const {id, egg_movie, egg, image, movie_id, found_count} = newEgg
+                new Egg(id, egg_movie, egg, image, movie_id, found_count)
             })
         })
     }

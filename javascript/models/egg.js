@@ -6,6 +6,7 @@ class Egg {
         this.egg = egg
         this.image = image
         this.movie_id = movie_id
+        this.found_count = this.found_count
         this.renderEgg()
     }
 
@@ -44,7 +45,7 @@ class Egg {
                 <button id="counter-button" class="btn btn-primary btn-md btn-block">
                 <b>Have you found this Easter Egg yet?</b> <br>
                 So far it has been found...<br>
-                0 times!
+                ${this.found_count} times!
                  </button>
         </div>
         `
