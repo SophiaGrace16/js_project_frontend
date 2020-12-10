@@ -20,7 +20,7 @@ class Egg {
         eggCard.innerHTML += this.eggHTML()
         eggContainer.appendChild(eggCard) 
         eggCard.addEventListener('click', e => {
-            if (e.target.className.includes("btn")) this.clickCounter(e)
+            if (e.target.className.includes("counter-button")) this.clickCounter(e)
         })
     }
     
@@ -59,7 +59,7 @@ class Egg {
                         </div>
                 </div>
 
-                <button id="counter-button" class="btn btn-primary btn-md btn-block">
+                <button class="counter-button btn btn-primary btn-md btn-block">
                     Have you found this Easter Egg yet?<br>
                     So far it has been found...<br>
                     <div id="count-${this.id}">${this.found_count}</div>
