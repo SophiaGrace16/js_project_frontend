@@ -1,12 +1,13 @@
 class Egg {
 
-    constructor(id, egg_movie, egg, image, movie_id, found_count){
+    constructor(id, egg_movie, egg, image, movie_id, found_count, approved){
         this.id = id
         this.egg_movie = egg_movie
         this.egg = egg
         this.image = image
         this.movie_id = movie_id
         this.found_count = found_count
+        this.approved = approved
         this.renderEgg()
     }
 
