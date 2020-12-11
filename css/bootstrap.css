@@ -410,23 +410,26 @@ a:hover {
   color: rgba(0, 0, 0, 0.292);
 }
 
+.image-list {
+  display: inline;
+  text-align: center;
+  width: 100%;
+}
+
 .list-card {
   display: inline;
-  float: left;
   text-align: center;
 }
 
 .movie-image {
   opacity: 1;
-  border-radius: 15px;
+  border-radius: 5%;
+  width: 30%;
+  padding: 5%;
 }
 
 .movie-image:hover {
   opacity: 0.3;
-}
-
-.image-list {
-  grid-auto-columns: max-content;
 }
 
 .movie-card {

@@ -27,11 +27,12 @@ class Movie {
 
     listHTML(){
         return `
-        <div class = "image-list">
+        <div class ="image-list">
             <a href="/movies/${this.id}">
-                <img src="${this.image}" class="movie-image" width="25%" />
+                <img src="${this.image}" class="movie-image"  />
             </a>
         </div>
+        
         `
     }
 
