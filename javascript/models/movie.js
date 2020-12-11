@@ -22,6 +22,7 @@ class Movie {
             e.preventDefault() 
             this.showMovie(e)
             this.createEggs(e)
+            this.eggForm(e)
         })
       }
 
@@ -68,6 +69,27 @@ class Movie {
             </div>
         </div>
         `
+    }
+
+    eggForm(){
+        return `
+        <form id="egg-form">
+        <input type="text" name="movie-name" placeholder="name"/>
+        <br/>
+        <input type="text" name="egg" placeholder="What is the egg?"/>
+        <br/>
+        <input type="text" name="image" placeholder="Image Address Link to the Image of the Egg"/>
+        <br/>
+        <input type="text" name="weight" placeholder="weight"/>
+        <br/>
+        <input type="text" name="img" placeholder="img url"/>
+        <br/>
+        <input type="text" name="cuteness" placeholder="how cute is your piglet on a 1-10 scale?"/>
+        <br/>
+        <input type="submit" value="Submit"/>
+        </form>
+        `
+        
     }
 
     createEggs(e) {
