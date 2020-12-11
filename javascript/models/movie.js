@@ -96,23 +96,22 @@ class Movie {
 
     eggForm(){
         return `
-        <form id="egg-form">
-            <input type="text" name="egg_movie" placeholder="name"/>
+        <form class="form-group" id="egg-form">
+            <input class="form-control" type="text" name="egg_movie" placeholder="Name of the Movie the Egg is From"/>
             <br/>
-            <input type="text" name="egg" placeholder="What is the egg?"/>
+            <input class="form-control" type="text" name="egg" placeholder="What is the Egg?"/>
             <br/>
-            <input type="text" name="image" placeholder="Image Address Link to the Image of the Egg"/>
+            <input class="form-control" type="text" name="image" placeholder="Image Address Link to the Image of the Egg"/>
             <br/>
-            <input type="text" name="movie_id" placeholder="?"/>
+            <input class="form-control" id="readOnlyInput" name="found_count" type="text" placeholder="0" readonly="0">
             <br/>
-            <input type="text" name="found_count" placeholder="?"/>
+            <input class="form-control" id="readOnlyInput" name="approved" type="text" placeholder="Pending" readonly="false">
             <br/>
-            <input type="text" name="approved" placeholder="?"/>
-            <br/>
-            <input id="submit" type="submit" value="Submit"/>
+            <input class="btn btn-primary" id="submit" type="submit" value="Submit"/>
 
         </form>
         `
     }
-    
+                // <input type="text" name="movie_id" placeholder="?"/>
+            // <br/>
 }
