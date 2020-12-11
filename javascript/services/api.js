@@ -9,6 +9,36 @@ class API {
             })
         })
     }
+
+    static addEgg(e){
+        debugger
+        e.preventDefault()
+        // capture our form data
+        let data = {
+            'egg_movie': e.target.egg_movie.value,
+            'egg': e.target.egg.value,
+            'image': e.target.image.value,
+            'found_count': e.target.found_count.value,
+            'movie_id': this.movie_id,
+            'approved': e.target.approved.false,
+            
+        };
+        // write our fetch and send it to our back end
+        fetch(`http://localhost:3000/movies/${this.movie_id}/eggs`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(resp => resp.json())
+        .then(newEgg => {
+            const {id, egg_movie, egg, image, movie_id, found_count, approved} = newEgg
+            new Egg(id, egg_movie, egg, image, movie_id, found_count, approved)
+            document.getElementById('egg-form').reset()
+        })
+      }
+
 }
 
 // this is a static fetch (class level) request that allows us to call things from our backend. 

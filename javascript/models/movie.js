@@ -22,6 +22,7 @@ class Movie {
             e.preventDefault() 
             this.showMovie(e)
             this.createEggs(e)
+            this.renderForm(e)
         })
       }
 
@@ -82,4 +83,36 @@ class Movie {
             })
         })
     }
+
+    renderForm() {
+        const eggForm = document.getElementById('egg-form')
+        const neweggCard = document.createElement('div')
+        neweggCard.classList.add('egg-form')
+        neweggCard.dataset.movie_id = this.id
+        neweggCard.movie_id = this.id
+        neweggCard.innerHTML += this.eggForm()
+        eggForm.appendChild(neweggCard) 
+    }
+
+    eggForm(){
+        return `
+        <form id="egg-form">
+            <input type="text" name="egg_movie" placeholder="name"/>
+            <br/>
+            <input type="text" name="egg" placeholder="What is the egg?"/>
+            <br/>
+            <input type="text" name="image" placeholder="Image Address Link to the Image of the Egg"/>
+            <br/>
+            <input type="text" name="movie_id" placeholder="?"/>
+            <br/>
+            <input type="text" name="found_count" placeholder="?"/>
+            <br/>
+            <input type="text" name="approved" placeholder="?"/>
+            <br/>
+            <input id="submit" type="submit" value="Submit"/>
+
+        </form>
+        `
+    }
+    
 }
