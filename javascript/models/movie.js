@@ -78,9 +78,9 @@ class Movie {
         .then(resp => resp.json())
         .then(eggs => {
             eggs.forEach(newEgg => {
-                const {id, egg_movie, egg, image, movie_id, found_count, approved} = newEgg
+                const {id, egg_movie, egg_description, image, approved, found_count, movie_id} = newEgg
                 if (approved === true){
-                     new Egg(id, egg_movie, egg, image, movie_id, found_count, approved)
+                     new Egg(id, egg_movie, egg_description, image, approved, found_count, movie_id)
                 } 
             })
         })
@@ -100,14 +100,14 @@ class Movie {
     eggForm(){
         return `
         <h5>Do you think we missed one? Submit an Egg for approval below!</h5>
-        <form class="form-group" id="egg-form">
+        <form id=eggForm>
 
             <p>What is the name of the movie that the Easter Egg is from?</p>
             <input class="form-control" type="text" name="egg_movie" placeholder="Name of the Movie the Egg is From"/>
             <br/>
 
             <p>What is the Easter Egg?</p>
-            <input class="form-control" type="text" name="egg" placeholder="Description of the Egg"/>
+            <input class="form-control" type="text" name="egg_description" placeholder="Description of the Egg"/>
             <br/>
 
             <p>Do you have a link to the image of the Easter Egg's appearance?</p>
@@ -121,36 +121,31 @@ class Movie {
     }
 
     addEgg(e){
-        
         e.preventDefault()
-        const newegg_movie = document.getElementById("movie-container").children[0].id
+        const neweggMovie = document.getElementById("movie-container").children[0].id
         // capture our form data
         let data = {
             'egg_movie': e.target.egg_movie.value,
-            'egg': e.target.egg.value,
+            'egg_description': e.target.egg_description.value,
             'image': e.target.image.value,
-            'movie_id': newegg_movie
+            'movie_id': neweggMovie
         };
-        debugger
         // write our fetch and send it to our back end
-        fetch(`http://localhost:3000/movies/${newegg_movie}/eggs`, {
+        fetch(`http://localhost:3000/movies/${neweggMovie}/eggs`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-        
         .then(resp => resp.json())
         .then(newEgg => {
-            const {id, egg_movie, egg, image, movie_id, found_count, approved} = newEgg
+            const {id, egg_movie, egg_description, image, approved, found_count, movie_id} = newEgg
             if (approved === true){
-            new Egg(id, egg_movie, egg, image, movie_id, found_count, approved)
+            new Egg(id, egg_movie, egg_description, image, approved, found_count, movie_id)
             }
-            document.getElementById('egg-form').reset()
+            document.getElementById('eggForm').reset()
         })
       }
 
-                // <input type="text" name="movie_id" placeholder="?"/>
-            // <br/>
 }

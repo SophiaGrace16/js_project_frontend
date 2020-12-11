@@ -1,13 +1,13 @@
 class Egg {
 
-    constructor(id, egg_movie, egg, image, movie_id, found_count, approved){
+    constructor(id, egg_movie, egg_description, image, movie_id, found_count, approved){
         this.id = id
         this.egg_movie = egg_movie
-        this.egg = egg
+        this.egg_description = egg_description
         this.image = image
-        this.movie_id = movie_id
-        this.found_count = found_count
         this.approved = approved
+        this.found_count = found_count
+        this.movie_id = movie_id
         this.renderEgg()
     }
 
@@ -57,7 +57,7 @@ class Egg {
                 <div class="movie-lead">
                     <h3> ${this.egg_movie} </h3>
                         <div class = "small">
-                        ${this.egg} <br>
+                        ${this.egg_description} <br>
                         </div>
                 </div>
 
