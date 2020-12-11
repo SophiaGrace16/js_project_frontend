@@ -79,7 +79,9 @@ class Movie {
         .then(eggs => {
             eggs.forEach(newEgg => {
                 const {id, egg_movie, egg, image, movie_id, found_count, approved} = newEgg
-                new Egg(id, egg_movie, egg, image, movie_id, found_count, approved)
+                if (approved === true){
+                     new Egg(id, egg_movie, egg, image, movie_id, found_count, approved)
+                } 
             })
         })
     }
@@ -92,6 +94,7 @@ class Movie {
         neweggCard.movie_id = this.id
         neweggCard.innerHTML += this.eggForm()
         eggForm.appendChild(neweggCard) 
+        document.getElementById('egg-form').addEventListener('submit', this.addEgg)
     }
 
     eggForm(){
@@ -111,19 +114,43 @@ class Movie {
             <input class="form-control" type="text" name="image" placeholder="Image Address Link"/>
             <br/>
 
-            <p>All of our counters start at 0!</p>
-            <input class="form-control" id="readOnlyInput" name="found_count" type="text" placeholder="0" readonly="0">
-            <br/>
-
-            <p>Check back on this page to see if your egg has been approved! If it is approved it will appear like the other eggs!</p>
-            <input class="form-control" id="readOnlyInput" name="approved" type="text" placeholder="Pending" readonly="false">
-            <br/>
-
             <input class="btn btn-primary" id="submit" type="submit" value="Submit"/>
 
         </form>
         `
     }
+
+    addEgg(e){
+        
+        e.preventDefault()
+        const newegg_movie = document.getElementById("movie-container").children[0].id
+        // capture our form data
+        let data = {
+            'egg_movie': e.target.egg_movie.value,
+            'egg': e.target.egg.value,
+            'image': e.target.image.value,
+            'movie_id': newegg_movie
+        };
+        debugger
+        // write our fetch and send it to our back end
+        fetch(`http://localhost:3000/movies/${newegg_movie}/eggs`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        
+        .then(resp => resp.json())
+        .then(newEgg => {
+            const {id, egg_movie, egg, image, movie_id, found_count, approved} = newEgg
+            if (approved === true){
+            new Egg(id, egg_movie, egg, image, movie_id, found_count, approved)
+            }
+            document.getElementById('egg-form').reset()
+        })
+      }
+
                 // <input type="text" name="movie_id" placeholder="?"/>
             // <br/>
 }
