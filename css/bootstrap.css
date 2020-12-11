@@ -73,7 +73,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #888;
-  text-align: left;
+  text-align: center;
   background-color: #fff;
   background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/screen-shot-2020-04-07-at-10-52-45-am-1586281979.png');
   background-repeat: no-repeat;
@@ -412,7 +412,6 @@ a:hover {
 
 .image-list {
   display: inline;
-  text-align: center;
   width: 100%;
 }
 
@@ -424,8 +423,8 @@ a:hover {
 .movie-image {
   opacity: 1;
   border-radius: 5%;
-  width: 30%;
-  padding: 5%;
+  width: 18%;
+  margin: 3%;
 }
 
 .movie-image:hover {
