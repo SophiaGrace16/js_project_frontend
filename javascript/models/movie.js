@@ -96,17 +96,29 @@ class Movie {
 
     eggForm(){
         return `
+        <h5>Do you think we missed one? Submit an Egg for approval below!</h5>
         <form class="form-group" id="egg-form">
+
+            <p>What is the name of the movie that the Easter Egg is from?</p>
             <input class="form-control" type="text" name="egg_movie" placeholder="Name of the Movie the Egg is From"/>
             <br/>
-            <input class="form-control" type="text" name="egg" placeholder="What is the Egg?"/>
+
+            <p>What is the Easter Egg?</p>
+            <input class="form-control" type="text" name="egg" placeholder="Description of the Egg"/>
             <br/>
-            <input class="form-control" type="text" name="image" placeholder="Image Address Link to the Image of the Egg"/>
+
+            <p>Do you have a link to the image of the Easter Egg's appearance?</p>
+            <input class="form-control" type="text" name="image" placeholder="Image Address Link"/>
             <br/>
+
+            <p>All of our counters start at 0!</p>
             <input class="form-control" id="readOnlyInput" name="found_count" type="text" placeholder="0" readonly="0">
             <br/>
+
+            <p>Check back on this page to see if your egg has been approved! If it is approved it will appear like the other eggs!</p>
             <input class="form-control" id="readOnlyInput" name="approved" type="text" placeholder="Pending" readonly="false">
             <br/>
+
             <input class="btn btn-primary" id="submit" type="submit" value="Submit"/>
 
         </form>
