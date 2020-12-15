@@ -50,23 +50,23 @@ class Movie {
 
     movieHTML(){
         return `
-        <div class="card border-primary mb-3">
+        <div class=" card border-primary mb-3">
 
             <div class="image-container">
-                <img src="${this.image}" class = "movie-card"/>
+                <img src="${this.image}" class = "egg-card"/>
             </div>
-            <div class="movie-lead">
-                <h3> ${this.movie_name} </h3>
-                    <div class = "small">
-                    ${this.date_released} <br>
-                    ${this.studio_name} <br>
-                    <a href=${this.imdb} target="_blank">${this.movie_name} IMDB</a>
-                    <br>
-                    <a href=${this.movie_link} target="_blank">Click here to rent the movie on Amazon!</a>
-                    <br>
-                    Or watch on <a href="https://www.disneyplus.com/home" target="_blank">Disney+</a>!
-                    </div>
-            </div>
+                <div class="movie-lead">
+                    <h3> ${this.movie_name} </h3>
+                        <div class = "small">
+                            ${this.date_released} <br>
+                            ${this.studio_name} <br>
+                            <a href=${this.imdb} target="_blank">${this.movie_name} IMDB</a>
+                            <br>
+                            <a href=${this.movie_link} target="_blank">Click here to rent the movie on Amazon!</a>
+                            <br>
+                            Or watch on <a href="https://www.disneyplus.com/home" target="_blank">Disney+</a>!
+                        </div>
+                </div>
         </div>
         `
     }

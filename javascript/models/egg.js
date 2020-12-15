@@ -27,6 +27,7 @@ class Egg {
 
     
     clickCounter(e) {
+        debugger
         let counter = this
         let count = document.getElementById(`count-${this.id}`)
         this.found_count ++;
